@@ -44,3 +44,10 @@ Deliverables
     The deployed link to your working solution.
 
     A link to your code repository.
+
+Curls
+
+    curl -X GET -H "Accept: application/json" "https://new.ai.nexusautotransport.com/api/vehicles/years"
+    curl -X GET -H "Accept: application/json" "https://new.api.nexusautotransport.com/api/vehicles/makes?year=2020"
+    curl -X GET -H "Accept: application/json" "https://new.api.nexusautotransport.com/api/vehicles/models?year=2008&make=Smart"
+    curl -X GET -H "Accept: application/json" "https://new.api.nexusautotransport.com/api/vehicles/models?page=1"
