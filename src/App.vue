@@ -28,7 +28,7 @@ export default {
   flex-grow: 1;
   padding: 20px;
   overflow-y: auto;
-  background-color: #1c1c1c;
+  background-color: #505050;
   border-radius: 0 8px 8px 0;
   color: #fff;
 }
