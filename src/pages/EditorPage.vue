@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>Model Page</h1>
     <table class="styled-table">
 
       <thead>
