@@ -1,4 +1,4 @@
-# Vue 3 + Vite
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b12a080d-0b36-440a-a6c5-2368a6ba02b3/deploy-status)](https://app.netlify.com/sites/dapper-stroopwafel-83fd3e/deploys)
 
 This is the solution for the tess assignment I got from Nexus Auto Transport after i applied to the open position they have had for some time.
 
