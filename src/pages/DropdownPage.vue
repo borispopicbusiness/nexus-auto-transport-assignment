@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import axios from 'axios';
 import Dropdown from '../components/Dropdown.vue';
+import { getYears, getMakesByYear, getModelsByYearAndMake } from '@/services/api.js';
 
 export default {
   components: { Dropdown },
@@ -36,10 +36,7 @@ export default {
   },
   async mounted() {
     try {
-      const response = await axios.get(
-          'https://new.api.nexusautotransport.com/api/vehicles/years'
-      );
-      this.years = response.data.data;
+      this.years = await getYears();
     } catch (error) {
       console.error('Error fetching years:', error);
     }
@@ -50,10 +47,7 @@ export default {
       this.selectedMake = null;
       this.models = [];
       try {
-        const response = await axios.get(
-            `https://new.api.nexusautotransport.com/api/vehicles/makes?year=${year}`
-        );
-        this.makes = response.data.data.map(argument => argument.name);
+        this.makes = await getMakesByYear(year);
       } catch (error) {
         console.error('Error fetching makes:', error);
       }
@@ -61,10 +55,7 @@ export default {
     async handleMakeSelect(make) {
       this.selectedMake = make;
       try {
-        const response = await axios.get(
-            `https://new.api.nexusautotransport.com/api/vehicles/models?year=${this.selectedYear}&make=${make}`
-        );
-        this.models = response.data.data.map(argument => argument.model);
+        this.models = await getModelsByYearAndMake(this.selectedYear, make);
       } catch (error) {
         console.error('Error fetching models:', error);
       }

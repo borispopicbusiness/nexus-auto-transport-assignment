@@ -9,19 +9,18 @@ const apiClient = axios.create({
 });
 
 export const getYears = async () => {
-    const response = await apiClient.get("/years");
+    const response = await apiClient.get(`/years`);
     return response.data.data;
 };
 
-export const getMakes = async (year) => {
+export const getMakesByYear = async (year) => {
     const response = await apiClient.get(`/makes?year=${year}`);
-    debugger
-    return response.data;
+    return response.data.data.map(argument => argument.name);
 };
 
-export const getModels = async (year, make) => {
+export const getModelsByYearAndMake = async (year, make) => {
     const response = await apiClient.get(`/models?year=${year}&make=${make}`);
-    return response.data;
+    return response.data.data.map(argument => argument.model);
 };
 
 export const getModelsByPage = async (page) => {
